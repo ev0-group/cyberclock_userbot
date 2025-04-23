@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  cyberclock-userbot:
+    build: .
+    container_name: cyberclock-userbot
+    environment:
+      - API_ID=${API_ID}
+      - API_HASH=${API_HASH}
+    volumes:
+      - ./assets:/app/assets
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
