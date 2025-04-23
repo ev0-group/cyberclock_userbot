@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install --no-cache-dir telethon pillow
 
-CMD ["python", "avatar_updater.py"]
+CMD ["python", "/app/avatar_updater.py"]
