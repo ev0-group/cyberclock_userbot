@@ -26,14 +26,18 @@ def generate_clock_image():
     now = datetime.now()
     time_str = now.strftime('%H:%M')
 
-    text_w, text_h = draw.textsize(time_str, font=font)
-    img_w, img_h = img.size
+    # Получаем bounding box текста
+    bbox = draw.textbbox((0, 0), time_str, font=font)
+    text_w = bbox[2] - bbox[0]
+    text_h = bbox[3] - bbox[1]
 
+    img_w, img_h = img.size
     x = (img_w - text_w) / 2
     y = (img_h - text_h) / 2
 
     draw.text((x, y), time_str, font=font, fill=(0, 255, 255, 255))
     img.save(OUTPUT_PATH)
+
 
 
 async def main():
