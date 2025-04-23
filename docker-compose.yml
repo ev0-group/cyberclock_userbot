@@ -1,6 +1,7 @@
 services:
   cyberclock-userbot:
-    build: .
+    build:
+      context: .
     container_name: cyberclock-userbot
     environment:
       - API_ID=${API_ID}
