@@ -1,5 +1,5 @@
 import os
-import time
+import asyncio
 from datetime import datetime
 from telethon import TelegramClient, functions
 from PIL import Image, ImageDraw, ImageFont
@@ -26,7 +26,6 @@ def generate_clock_image():
     now = datetime.now()
     time_str = now.strftime('%H:%M')
 
-    # Получаем bounding box текста
     bbox = draw.textbbox((0, 0), time_str, font=font)
     text_w = bbox[2] - bbox[0]
     text_h = bbox[3] - bbox[1]
@@ -37,7 +36,6 @@ def generate_clock_image():
 
     draw.text((x, y), time_str, font=font, fill=(0, 255, 255, 255))
     img.save(OUTPUT_PATH)
-
 
 
 async def main():
@@ -56,7 +54,7 @@ async def main():
         except Exception as e:
             print("[!] Ошибка при установке аватарки:", e)
 
-        time.sleep(60)
+        await asyncio.sleep(60)
 
 
 if __name__ == '__main__':
