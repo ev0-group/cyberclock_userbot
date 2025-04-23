@@ -8,6 +8,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ./assets:/app/assets
+      - ./session:/app
     restart: unless-stopped
     stdin_open: true
     tty: true
