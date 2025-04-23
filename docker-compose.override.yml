@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  cyberclock-userbot:
+    command: ["python", "/app/avatar_updater.py"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
