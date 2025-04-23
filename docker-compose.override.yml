@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   cyberclock-userbot:
     command: ["python", "/app/avatar_updater.py"]
